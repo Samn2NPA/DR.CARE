@@ -1,6 +1,6 @@
 # - *DR.CARE App*
 
-**DR.CARE** is an android app that allows a user to view his Twitter timeline and post a new tweet. The app utilizes [Twitter REST API](https://dev.twitter.com/rest/public).
+**DR.CARE** is an android app support in hospital, can be used by both Doctor and Patient.
 
 Time spent: **X** hours spent in total
 
@@ -8,50 +8,37 @@ Time spent: **X** hours spent in total
 
 The following **required** functionality is completed:
 
-* [ ]	User can **sign in to Twitter** using OAuth login
-* [ ]	User can **view tweets from their home timeline**
-  * [ ] User is displayed the username, name, and body for each tweet
-  * [ ] User is displayed the [relative timestamp](https://gist.github.com/nesquena/f786232f5ef72f6e10a7) for each tweet "8m", "7h"
-  * [ ] User can view more tweets as they scroll with [infinite pagination](http://guides.codepath.com/android/Endless-Scrolling-with-AdapterViews-and-RecyclerView). Number of tweets is unlimited.
-    However there are [Twitter Api Rate Limits](https://dev.twitter.com/rest/public/rate-limiting) in place.
-* [ ] User can **compose and post a new tweet**
-  * [ ] User can click a “Compose” icon in the Action Bar on the top right
-  * [ ] User can then enter a new tweet and post this to twitter
-  * [ ] User is taken back to home timeline with **new tweet visible** in timeline
+* [ ]	User (Doctor/Patient) can **sign in to DR.CARE** by input ID manually or scan QRcode (provided by Receiptionist)
 
-The following **optional** features are implemented:
-
-* [ ] User can **see a counter with total number of characters left for tweet** on compose tweet page
-* [ ] User can **click a link within a tweet body** on tweet details view. The click will launch the web browser with relevant page opened.
-* [ ] User can **pull down to refresh tweets timeline**
-* [ ] User can **open the twitter app offline and see last loaded tweets**. Persisted in SQLite tweets are refreshed on every application launch. While "live data" is displayed when app can get it from Twitter API, it is also saved for use in offline mode.
-* [ ] User can tap a tweet to **open a detailed tweet view**
-* [ ] User can **select "reply" from detail view to respond to a tweet**
-
-The following **bonus** features are implemented:
-
-* [ ] User can see embedded image media within the tweet detail view
-* [ ] User can watch embedded video within the tweet
-* [ ] Compose tweet functionality is build using modal overlay
-* [ ] Use Parcelable instead of Serializable using the popular [Parceler library](http://guides.codepath.com/android/Using-Parceler).
-* [ ] [Leverage RecyclerView](http://guides.codepath.com/android/Using-the-RecyclerView) as a replacement for the ListView and ArrayAdapter for all lists of tweets.
-* [ ] Move the "Compose" action to a [FloatingActionButton](https://github.com/codepath/android_guides/wiki/Floating-Action-Buttons) instead of on the AppBar.
-* [ ] On the Twitter timeline, leverage the [CoordinatorLayout](http://guides.codepath.com/android/Handling-Scrolls-with-CoordinatorLayout#responding-to-scroll-events) to apply scrolling behavior that [hides / shows the toolbar](http://guides.codepath.com/android/Using-the-App-ToolBar#reacting-to-scroll).
-* [ ] Replace all icon drawables and other static image assets with [vector drawables](http://guides.codepath.com/android/Drawables#vector-drawables) where appropriate.
-* [ ] Leverages the [data binding support module](http://guides.codepath.com/android/Applying-Data-Binding-for-Views) to bind data into layout templates.
-* [ ] Replace Picasso with [Glide](http://inthecheesefactory.com/blog/get-to-know-glide-recommended-by-google/en) for more efficient image rendering.
-* [ ] Enable your app to [receive implicit intents](http://guides.codepath.com/android/Using-Intents-to-Create-Flows#receiving-implicit-intents) from other apps.  When a link is shared from a web browser, it should pre-fill the text and title of the web page when composing a tweet.
-* [ ] When a user leaves the compose view without publishing and there is existing text, prompt to save or delete the draft.  The draft can be resumed from the compose view.
-
-The following **additional** features are implemented:
-
-* [ ] List anything else that you can get done to improve the app functionality!
+**DOCTOR**
+* [ ]	Doctor can **view list of patient by day** in homescreen
+  * [ ] Doctor can sort for specific day.
+  * [ ] Data is refreshed every 5 secs.
+  * [ ] List is sorted by FIFO.
+  * [ ] Data is refreshed every 5 secs.
+  * [ ] Doctor can **pull down to refresh list of patient**
+  * [ ] User can view more patients as they scroll with [infinite pagination](http://guides.codepath.com/android/Endless-Scrolling-with-AdapterViews-and-RecyclerView). Number of patients is unlimited.
+  * [ ] Differentiate status of patient (done/ not yet)
+  
+ * [ ] Doctor can add diagnosis and prescription for their patients (2th screen: click on item_patient in homescreen)
+    * [ ] there is Reactive Programming to [reactive response](https://medium.com/@matdziu/using-rxjava-in-searchview-f1d1d5dcb8b7) to query change
+ 
+ **PATIENT**
+ * [ ] Patient can **view list of Diagnosis by day** in homescreen: default is today.
+ * [ ] Patient can view prescription by click on item_diagnosis.
+ * [ ] Set remind manually for individual prescription/Diagnosis.
+ 
+ **BOTH**
+ * [ ] Doctor and Patient can chat to each other.
+ * [ ] Doctor and Patient can video call to each other.
+ 
+ 
 
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='http://i.imgur.com/dXdluNY.gif' title='For Patient' width='' alt='For Patient' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
@@ -66,7 +53,11 @@ Describe any challenges encountered while building the app.
 
 ## License
 
-    Copyright [yyyy] [name of copyright owner]
+    Copyright [2017] [Team TLS]
+    *Team members:
+    - Samn Nguyễn
+    - Đức Lộc
+    - Huỳnh Hữu Tâm
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
